@@ -26,7 +26,13 @@
 
 import UIKit
 
+public enum Pattern {
+    case left, middle
+}
+
 public class PageStyle {
+    
+    public var pattern: Pattern = .middle
     
     /// titleView
     public var titleViewHeight: CGFloat = 44

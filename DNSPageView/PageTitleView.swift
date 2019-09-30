@@ -245,11 +245,31 @@ extension PageTitleView {
         var width: CGFloat = 0
         let height = frame.height
         
+        var textWidth: CGFloat = 0
+        var start: CGFloat = 0
+        
         let count = titleLabels.count
+        
+        for (i, _) in titleLabels.enumerated() {
+            textWidth += (titles[i] as NSString).boundingRect(with: CGSize(width: CGFloat.greatestFiniteMagnitude, height: 0), options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font : style.titleFont], context: nil).width
+            
+        }
+        
+        if style.pattern == .middle {
+            let c = CGFloat(integerLiteral: (count - 1))
+            start = (UIScreen.main.bounds.width - textWidth - style.titleMargin * c) / 2
+            
+        }
+        
         for (i, titleLabel) in titleLabels.enumerated() {
             if style.isTitleViewScrollEnabled {
                 width = (titles[i] as NSString).boundingRect(with: CGSize(width: CGFloat.greatestFiniteMagnitude, height: 0), options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font : style.titleFont], context: nil).width
                 x = i == 0 ? style.titleMargin * 0.5 : (titleLabels[i - 1].frame.maxX + style.titleMargin)
+                
+                if i == 0 && style.pattern == .middle {
+                    x = start
+                }
+                
             } else {
                 width = frame.width / CGFloat(count)
                 x = width * CGFloat(i)
