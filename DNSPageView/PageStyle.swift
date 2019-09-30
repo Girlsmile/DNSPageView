@@ -32,6 +32,7 @@ public enum Pattern {
 
 public class PageStyle {
     
+    weak public var rightButton: UIButton?
     public var pattern: Pattern = .middle
     
     /// titleView
