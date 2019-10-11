@@ -61,15 +61,15 @@ extension PageView {
     private func setupUI() {
         let titleFrame = CGRect(x: 0, y: 0, width: bounds.width, height: style.titleViewHeight)
         titleView.frame = titleFrame
-        addSubview(titleView)
         
         if let button = style.rightButton {
             titleView.addSubview(button)
         }
         
-        let contentFrame = CGRect(x: 0, y: style.titleViewHeight, width: bounds.width, height: bounds.height - style.titleViewHeight)
+        let contentFrame = CGRect(x: 0, y: style.titleViewHeight + style.contentViewOffset, width: bounds.width, height: bounds.height - style.titleViewHeight)
         contentView.frame = contentFrame
         addSubview(contentView)
+        addSubview(titleView)
         
         titleView.delegate = contentView
         contentView.delegate = titleView
