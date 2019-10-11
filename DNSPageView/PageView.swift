@@ -59,7 +59,7 @@ open class PageView: UIView {
 
 extension PageView {
     private func setupUI() {
-        let titleFrame = CGRect(x: 0, y: 0, width: bounds.width, height: style.titleViewHeight)
+        let titleFrame = CGRect(x: 0, y: style.titleViewOffset, width: bounds.width, height: style.titleViewHeight)
         titleView.frame = titleFrame
         
         if let button = style.rightButton {

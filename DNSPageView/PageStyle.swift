@@ -44,6 +44,7 @@ public class PageStyle {
     public var titleMargin: CGFloat = 30
     public var titleViewSelectedColor: UIColor = UIColor.clear
     public var contentViewOffset: CGFloat = 0
+    public var titleViewOffset: CGFloat = UIApplication.shared.statusBarFrame.height
     
     /// titleView滑动
     public var isTitleViewScrollEnabled: Bool = false
