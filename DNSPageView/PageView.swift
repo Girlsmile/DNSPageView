@@ -62,8 +62,12 @@ extension PageView {
         let titleFrame = CGRect(x: 0, y: style.titleViewOffset, width: bounds.width, height: style.titleViewHeight)
         titleView.frame = titleFrame
         
-        if let button = style.rightButton {
-            titleView.addSubview(button)
+        if let rightView = style.rightView {
+            titleView.addSubview(rightView)
+        }
+        
+        if let leftView = style.leftView {
+            titleView.addSubview(leftView)
         }
         
         let contentFrame = CGRect(x: 0, y: style.titleViewHeight + style.contentViewOffset, width: bounds.width, height: bounds.height - style.titleViewHeight)
